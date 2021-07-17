@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JustStreamIt</title>
 
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header>
         <h1>JustStreamIt</h1>
-        <div class="navigation-bar">
+        <div id="navigation-bar">
             <nav>
                 <ul>
                     <li><a href="#">Accueil</a></li>
@@ -21,6 +21,37 @@
         </div>
     </header>
 
+    <div class="navigation-wrapper">
+        <div id="my-keen-slider" class="keen-slider">
+          <div class="keen-slider__slide number-slide1">1</div>
+          <div class="keen-slider__slide number-slide2">2</div>
+          <div class="keen-slider__slide number-slide3">3</div>
+          <div class="keen-slider__slide number-slide4">4</div>
+          <div class="keen-slider__slide number-slide5">5</div>
+          <div class="keen-slider__slide number-slide6">6</div>
+        </div>
+        <svg
+          id="arrow-left"
+          class="arrow arrow--left"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
+          ></path>
+        </svg>
+        <svg
+          id="arrow-right"
+          class="arrow arrow--right"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path>
+        </svg>
+      </div>
+      <div id="dots" class="dots"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@5.5.0/keen-slider.min.js"></script>
     <script src="./scripts.js"></script>
 </body>
 </html>
