@@ -1,0 +1,22 @@
+{
+  "name": "juststreamit-website",
+  "version": "1.0.0",
+  "description": "Web application for found famous movie to watch.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./website/main.scss:./website/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthew-delamotte/JustStreamIt-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matthew-delamotte/JustStreamIt-website/issues"
+  },
+  "homepage": "https://github.com/Matthew-delamotte/JustStreamIt-website#readme",
+  "dependencies": {
+    "sass": "^1.35.2"
+  }
+}
