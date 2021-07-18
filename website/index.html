@@ -1,51 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustStreamIt</title>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>JustStreamIt</title>
 
-    <link rel="stylesheet" href="./style.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/keen-slider@5.5.0/keen-slider.min.css"
-    />
-</head>
-<body>
-  <main>
-    <div class="navigation-wrapper">
-      <div id="my-keen-slider" class="keen-slider">
-        <div class="keen-slider__slide number-slide1">1</div>
-        <div class="keen-slider__slide number-slide2">2</div>
-        <div class="keen-slider__slide number-slide3">3</div>
-        <div class="keen-slider__slide number-slide4">4</div>
-        <div class="keen-slider__slide number-slide5">5</div>
-        <div class="keen-slider__slide number-slide6">6</div>
+      <link rel="stylesheet" href="./style.css">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/keen-slider@5.5.0/keen-slider.min.css"
+      />
+  </head>
+  <body>
+    <header>
+      <div class="home">
+        <h1>
+          <a href="#">JustStreamIt</a>
+        </h1>
       </div>
-      <svg
-        id="arrow-left"
-        class="arrow arrow--left"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
-        ></path>
-      </svg>
-      <svg
-        id="arrow-right"
-        class="arrow arrow--right"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path>
-      </svg>
+      
+      <div class="navigation-bar">
+        <nav>
+          <ul>
+              <li><a href="#">Accueil</a></li>
+              <li><a href="#">Catégories</a></li>
+          </ul>    
+      </nav>
       </div>
-    <div id="dots" class="dots"></div>
-  </main>
+    </header>
 
+    <main>
+      <div class="movie-of-the-day">
+        <a href="#"><img src="#" alt="movie-of-the-day"></a>
+      </div>
+
+      <div class="navigation-wrapper">
+        <div id="my-keen-slider" class="keen-slider">
+          <div class="keen-slider__slide number-slide1">
+            <img src="./image/img1.jpg" alt="Snow" onclick="test()" style="width:100%;max-width:300px">
+          </div>
+          <div class="keen-slider__slide number-slide2">
+            
+          </div>
+          <div class="keen-slider__slide number-slide3">3</div>
+          <div class="keen-slider__slide number-slide4">4</div>
+          <div class="keen-slider__slide number-slide5">5</div>
+          <div class="keen-slider__slide number-slide6">6</div>
+          <div class="keen-slider__slide number-slide7">7</div>
+        </div>
+        <svg
+          id="arrow-left"
+          class="arrow arrow--left"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24">
+          <path
+            d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
+          ></path>
+        </svg>
+        <svg
+          id="arrow-right"
+          class="arrow arrow--right"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24">
+          <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path>
+        </svg>
+      </div>
+      <div id="dots" class="dots"></div>
+    </main>
+
+
+    <!-- Modal window -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@5.5.0/keen-slider.min.js"></script>
     <script src="./scripts.js"></script>
-</body>
+  </body>
 </html>
