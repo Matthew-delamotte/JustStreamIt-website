@@ -4,7 +4,7 @@
   "description": "Web application for found famous movie to watch.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./website/main.scss:./website/style.css"
+    "sass": "sass --watch ./area51/main.scss:./area51/style.css"
   },
   "repository": {
     "type": "git",
