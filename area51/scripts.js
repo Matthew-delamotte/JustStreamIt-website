@@ -14,7 +14,7 @@ async function lstMovies(sortBy, genre, pageSize = 5) {
 function bestMovie(movie) {
   const img = document.createElement("img");
   img.src = movie.image_url;
-  img.className = "best-movie__img";
+  // img.className = "best-movie-img";
   document.getElementById("best-movie").appendChild(img);
   //   const title = document.createElement("div");
   //   title.appendChild(document.createTextNode(movie.title));
