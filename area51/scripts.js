@@ -1,13 +1,20 @@
+/* Appel API */
 async function lstMovies(sortBy, genre, pageSize = 5) {
-  const response = await fetch(
-    `http://localhost:8000/api/v1/titles?sort_by=${sortBy}&page_size=${pageSize}&genre=${genre}`
-  );
-  return await response.json(); // .then((response) => response.json())
+  try {
+    const response = await fetch(
+      `http://localhost:8000/api/v1/titles?sort_by=${sortBy}&page_size=${pageSize}&genre=${genre}`
+    );
+    return response.json(); // .then((response) => response.json())
+  } catch (err) {
+    alert(err); // TypeError: failed to fetch
+  }
 }
 
+/* Creation HTML */
 function bestMovie(movie) {
   const img = document.createElement("img");
   img.src = movie.image_url;
+  img.className = "best-movie__img";
   document.getElementById("best-movie").appendChild(img);
   //   const title = document.createElement("div");
   //   title.appendChild(document.createTextNode(movie.title));

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: rgb(87, 87, 87);
 }
 
 header {
@@ -41,4 +42,34 @@ header {
       }
     }
   }
+}
+
+//********* Movies of the day **************
+.movie-of-the-day {
+  width: auto;
+  height: 400px;
+  border: 1px solid green;
+  padding: 0;
+  margin: 5px;
+  display: hidden;
+}
+
+//********* Best movies ************
+.best-movies {
+  width: auto;
+  height: 200px;
+  border: 1px solid green;
+  padding: 0;
+  margin: 5px;
+  display: hidden;
+}
+
+//********* Catégorie ************
+.categorie {
+  width: auto;
+  height: 200px;
+  border: 1px solid green;
+  padding: 0;
+  margin: 5px;
+  display: hidden;
 }

@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JustStreamIt</title>
 
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./carousel/carousel.css">
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/keen-slider@5.5.0/keen-slider.min.css"
-      />
-</head>
-<body>
-    <header>
-        <h1 id="title-header">JustStreamIt</h1>
-
-        <nav class="topnav">
-            <a class="active" href="#home">Accueil</a>
-            <a href="#categorie">Catégorie</a>
-        </nav>
-    </header>
-
-    <div id="best-movie"></div>
-
-    <div id="best-movies"></div>
-    
-    <div id="categorieSci-Fi"></div>
-
-    <div id="categorieFantasy"></div>
-
-    <div id="categorieAnimation"></div>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./carousel/carousel.css" />
 
     <script src="./scripts.js"></script>
     <script src="./carousel/carousel.js"></script>
-</body>
+  </head>
+  <body>
+    <header>
+      <h1 id="title-header">JustStreamIt</h1>
+
+      <nav class="topnav">
+        <a class="active" href="#home">Accueil</a>
+        <a href="#categorie">Catégorie</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="movie-of-the-day">
+        <a href="#best-movie">
+          <div id="best-movie"></div>
+        </a>
+      </div>
+
+      <div class="best-movies">
+        <div id="best-movies"></div>
+      </div>
+
+      <div class="categorie">
+        <div id="categorieSci-Fi"></div>
+      </div>
+
+      <div class="categorie">
+        <div id="categorieFantasy"></div>
+      </div>
+
+      <div class="categorie">
+        <div id="categorieAnimation"></div>
+      </div>
+    </main>
+  </body>
 </html>
