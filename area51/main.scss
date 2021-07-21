@@ -46,28 +46,55 @@ header {
   }
 }
 
-//********* Movies of the day **************
-// .movie-of-the-day {
-//   width: auto;
-//   height: 400px;
-//   border: 1px solid green;
-//   padding: 0;
-//   margin: 5px;
-//   display: hidden;
-// }
-
-.best-movie-img {
+//********* Best movie **************
+.best-movie {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url("https://m.media-amazon.com/images/M/MV5BNDEyYTA5OWEtYjNiYS00MGZlLThjYzEtMTc1Zjk2NDRmZmYxXkEyXkFqcGdeQXVyNzIwNTQyMw@@._V1_UY268_CR1,0,182,268_AL_.jpg");
 
   /* Set a specific height */
-  height: 50%;
+  height: 400px;
+  width: auto;
+  margin: 10px;
+  border: #333 solid 2px;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+
+  &__text {
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+
+    p {
+      color: rgb(255, 255, 255);
+      font-size: 50px;
+      font-family: "Gill Sans", sans-serif;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #e7e7e7;
+      border: none;
+      color: black;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 10px 50px;
+      border-radius: 0px;
+      position: relative;
+      bottom: 45px;
+
+      &:hover {
+        background-color: #f7f7f7;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+    }
+  }
 }
 
 //********* Best movies ************
@@ -77,6 +104,7 @@ header {
   padding: 0;
   margin: 5px;
   display: hidden;
+  border: green solid 1px;
 }
 
 //********* Catégorie ************
