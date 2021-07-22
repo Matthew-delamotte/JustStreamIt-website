@@ -15,7 +15,11 @@ function bestMovie(movie) {
   const img = document.createElement("img");
   img.src = movie.image_url;
   // img.className = "best-movie-img";
-  document.getElementById("best-movie").appendChild(img);
+  // document.getElementById("best-movie").appendChild(img);
+  document.getElementById(
+    "best-movie"
+  ).style.backgroundImage = `url(${movie.image_url})`;
+  console.log(movie.image_url);
   //   const title = document.createElement("div");
   //   title.appendChild(document.createTextNode(movie.title));
   //   title.appendChild(document.createI)
@@ -26,6 +30,7 @@ function bestMovies(movies) {
   for (const movie of movies) {
     const img = document.createElement("img");
     img.src = movie.image_url;
+
     document.getElementById("best-movies").appendChild(img);
   }
   //   for (const movie of movies) {
