@@ -1,48 +1,32 @@
-let slider = new KeenSlider("#my-keen-slider", {
-  created: function (instance) {
-    document
-      .getElementById("arrow-left")
-      .addEventListener("click", function () {
-        instance.prev();
-      });
+var slideIndex = 1;
+showSlides(slideIndex);
 
-    document
-      .getElementById("arrow-right")
-      .addEventListener("click", function () {
-        instance.next();
-      });
-    let dots_wrapper = document.getElementById("dots");
-    let slides = document.querySelectorAll(".keen-slider__slide");
-    slides.forEach(function (t, idx) {
-      let dot = document.createElement("button");
-      dot.classList.add("dot");
-      dots_wrapper.appendChild(dot);
-      dot.addEventListener("click", function () {
-        instance.moveToSlide(idx);
-      });
-    });
-    updateClasses(instance);
-  },
-  slideChanged(instance) {
-    updateClasses(instance);
-  },
-});
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
 
-function updateClasses(instance) {
-  let slide = instance.details().relativeSlide;
-  let arrowLeft = document.getElementById("arrow-left");
-  let arrowRight = document.getElementById("arrow-right");
-  slide === 0
-    ? arrowLeft.classList.add("arrow--disabled")
-    : arrowLeft.classList.remove("arrow--disabled");
-  slide === instance.details().size - 1
-    ? arrowRight.classList.add("arrow--disabled")
-    : arrowRight.classList.remove("arrow--disabled");
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
 
-  let dots = document.querySelectorAll(".dot");
-  dots.forEach(function (dot, idx) {
-    idx === slide
-      ? dot.classList.add("dot--active")
-      : dot.classList.remove("dot--active");
-  });
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
