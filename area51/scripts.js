@@ -89,26 +89,28 @@ categorie("Sci-Fi").then();
 // categorie("Animation").then();
 
 function getData(categorie) {
-  if (categorie == "bestMovie") {
+  let movieData;
+  let moviesData = new Array();
+  if (categorie == "bestMovies") {
     lstMovies("-imdb_score", "", 8).then((movies) => {
       for (const movie of movies.results) {
         getMovieData(movie.url).then((data) => {
           // console.log(data);
-          let movieData = {
-            image_url: data.image_url,
-            title: data.title,
-            genres: data.genres,
-            datePublished: data.date_published,
-            rated: data.rated,
-            imdbScore: data.imdb_score,
-            directors: data.directors,
-            actors: data.actors,
-            duration: data.duration,
-            country: data.countries,
-            boxOffice: data.metascore,
-            description: data.long_description,
-          };
-          console.log(movieData);
+          movieData = [
+            data.image_url,
+            data.title,
+            data.genres,
+            data.date_published,
+            data.rated,
+            data.imdb_score,
+            data.directors,
+            data.actors,
+            data.duration,
+            data.countries,
+            data.metascore,
+            data.long_description,
+          ];
+          moviesData.push(movieData);
         });
       }
     });
@@ -117,30 +119,37 @@ function getData(categorie) {
       for (const movie of movies.results) {
         getMovieData(movie.url).then((data) => {
           // console.log(data);
-          let movieData = {
-            image_url: data.image_url,
-            title: data.title,
-            genres: data.genres,
-            datePublished: data.date_published,
-            rated: data.rated,
-            imdbScore: data.imdb_score,
-            directors: data.directors,
-            actors: data.actors,
-            duration: data.duration,
-            country: data.countries,
-            boxOffice: data.metascore,
-            description: data.long_description,
-          };
-          console.log(movieData);
+          movieData = [
+            data.image_url,
+            data.title,
+            data.genres,
+            data.date_published,
+            data.rated,
+            data.imdb_score,
+            data.directors,
+            data.actors,
+            data.duration,
+            data.countries,
+            data.metascore,
+            data.long_description,
+          ];
+          moviesData.push(movieData);
         });
       }
     });
   } else {
     alert(err);
   }
+  return moviesData;
 }
 
-getData("Animation");
+moviesData = getData("bestMovies");
+console.log(moviesData);
+for (const [key, value] in Object.entries(moviesData)) {
+  console.log(`${key}: ${value}`);
+}
+// console.log(getData("bestMovies"));
+// getData("bestMovies");
 
 //******** Modal ***********/
 // // Get the modal

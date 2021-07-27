@@ -107,7 +107,7 @@ header .topnav a:hover {
 
 /* The Modal (background) */
 .modal {
-  display: none;
+  display: visible;
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
