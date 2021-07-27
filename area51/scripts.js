@@ -10,6 +10,11 @@ async function lstMovies(sortBy, genre, pageSize = 5) {
   }
 }
 
+async function getMovieData(url) {
+  const response = await fetch(url);
+  return response.json();
+}
+
 /* Creation HTML */
 function bestMovie(movie) {
   const img = document.createElement("img");
@@ -36,8 +41,6 @@ function bestMovies(movies) {
     div.classList.add("best-movies-img");
     div.style.backgroundImage = `url(${movie.image_url})`;
     a.appendChild(div);
-
-    console.log(a);
     parent.appendChild(a);
   }
   //   for (const movie of movies) {
@@ -55,8 +58,9 @@ async function categorie(categorie) {
     const div = document.createElement("div");
     div.classList.add("keen-slider__slide");
     div.style.backgroundImage = `url(${movie.image_url})`;
-    parent.appendChild(div);
+    // parent.appendChild(div);
   }
+
   //   const img = document.createElement("img");
   //   img.src = movie.image_url;
   //   document.getElementById(`categorie${categorie}`).appendChild(img);
@@ -84,29 +88,37 @@ categorie("Sci-Fi").then();
 // categorie("Fantasy").then();
 // categorie("Animation").then();
 
-//******** Modal ***********/
-// Get the modal
-let modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-let btn = document.getElementsByClassName("myBtn");
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-  modal.style.display = "block";
-};
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+lstMovies("-imdb_score", "", 8).then((movies) => {
+  for (const movie of movies.results) {
+    getMovieData(movie.url).then((data) => {
+      console.log(data.date_published);
+    });
   }
-};
+});
+
+//******** Modal ***********/
+// // Get the modal
+// let modal = document.getElementById("myModal");
+
+// // Get the button that opens the modal
+// let btn = document.getElementsByClassName("myBtn");
+
+// // Get the <span> element that closes the modal
+// let span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks on the button, open the modal
+// btn[0].onclick = function () {
+//   modal.style.display = "block";
+// };
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function () {
+//   modal.style.display = "none";
+// };
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function (event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
