@@ -16,26 +16,52 @@ async function getMovieData(url) {
 }
 
 /* Creation HTML */
-function bestMovieImg(movie) {
-  // const img = document.createElement("img");
-  // img.src = movie.image_url;
-
-  const modalButton = document.createElement("button");
-  modalButton.appendChild(document.createTextNode("Résumé"));
-
+function bestMovie(movie) {
   document.getElementById(
     "best-movie"
   ).style.backgroundImage = `url(${movie.image_url})`;
+
+  const parent = document.getElementById("best-movie");
+
+  const title = document.createElement("h2");
+  title.appendChild(document.createTextNode("Meilleur Film"));
+  title.setAttribute("id", "best-movie-title");
+  parent.appendChild(title);
+
+  const div = document.createElement("div");
+  div.setAttribute("id", "best-movie-text");
+
+  const bestMovieTitle = document.createElement("p");
+  bestMovieTitle.appendChild(document.createTextNode(movie.title));
+
+  const modalButton = document.createElement("button");
+  div.addEventListener("click", function () {
+    openModal(movie);
+  });
+  modalButton.appendChild(document.createTextNode("Résumé"));
+
+  parent.appendChild(title);
+  div.appendChild(bestMovieTitle);
+  div.appendChild(modalButton);
+  parent.appendChild(div);
+
   //   const title = document.createElement("div");
   //   title.appendChild(document.createTextNode(movie.title));
   //   title.appendChild(document.createI)
   //   document.getElementById("best-movie").appendChild(title);
+  // const img = document.createElement("img");
+  // img.src = movie.image_url;
   // img.className = "best-movie-img";
   // document.getElementById("best-movie").appendChild(img);
 }
 
-function bestMoviesImg(movies) {
+function bestMovies(movies) {
   const parent = document.getElementById("best-movies");
+
+  const title = document.createElement("h2");
+  title.appendChild(document.createTextNode("7 Meilleur films"));
+  title.setAttribute("id", "best-movies-title");
+  parent.appendChild(title);
 
   for (const movie of movies) {
     const a = document.createElement("a");
@@ -59,8 +85,29 @@ function bestMoviesImg(movies) {
   //   }
 }
 
-// async function categorie(categorie) {
-// const movies = await lstMovies("-imdb_score", categorie, 7);
+async function categorie(categorie) {
+  const movies = await lstMovies("-imdb_score", categorie, 7);
+  const parent = document.getElementById(categorie);
+
+  const title = document.createElement("h2");
+  title.appendChild(document.createTextNode(`Catégorie: ${categorie}`));
+  title.setAttribute("id", `${categorie}-title`);
+  parent.appendChild(title);
+
+  for (const movie of movies.results) {
+    const a = document.createElement("a");
+    a.href = "#";
+
+    const div = document.createElement("div");
+    div.classList.add(`categorie-${categorie}-img`);
+    div.addEventListener("click", function () {
+      openModal(movie);
+    });
+    div.style.backgroundImage = `url(${movie.image_url})`;
+    a.appendChild(div);
+    parent.appendChild(a);
+  }
+}
 // const parent = document.getElementById("categorie-scyfi-slider");
 // for (const movie of movies.results) {
 //   const div = document.createElement("div");
@@ -88,13 +135,13 @@ function bestMoviesImg(movies) {
 // });
 
 lstMovies("-imdb_score", "", 8).then((movies) => {
-  bestMovieImg(movies.results[0]);
-  bestMoviesImg(movies.results.slice(1));
+  bestMovie(movies.results[0]);
+  bestMovies(movies.results.slice(1));
 });
 
-// categorie("Sci-Fi").then();
-// categorie("Fantasy").then();
-// categorie("Animation").then();
+categorie("Sci-Fi").then();
+categorie("Fantasy").then();
+categorie("Animation").then();
 
 async function openModal(movie) {
   const detail = await getMovieData(movie.url);
@@ -200,8 +247,7 @@ async function openModal(movie) {
 // console.log(getData("bestMovies"));
 // getData("bestMovies");
 
-//******** Modal ***********/
-// Get the modal
+//******** Modal ***********
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {

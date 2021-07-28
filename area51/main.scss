@@ -58,8 +58,11 @@ header {
   /* Set a specific height */
   height: 400px;
   width: auto;
+  max-width: 1750px;
   margin: 10px;
   border: #333 solid 2px;
+  margin-left: auto;
+  margin-right: auto;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -68,7 +71,21 @@ header {
   position: relative;
 }
 
-.best-movie-text {
+#best-movie-title {
+  color: white;
+  font-size: 50px;
+  position: relative;
+  left: 40px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 94, 112, 1) 100%
+  );
+  width: 500px;
+  text-align: right;
+}
+
+#best-movie-text {
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -106,9 +123,83 @@ header {
   margin: 50px;
   overflow: auto;
   white-space: nowrap;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#best-movies-title {
+  color: white;
+  font-size: 30px;
+}
+
+#Sci-Fi-title {
+  color: white;
+}
+
+#Fantasy-title {
+  color: white;
+}
+
+#Animation-title {
+  color: white;
+}
+
+#Sci-Fi {
+  margin: 50px;
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Fantasy {
+  margin: 50px;
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Animation {
+  margin: 50px;
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .best-movies-img {
+  width: 341px;
+  height: 230px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+  display: inline-flex;
+}
+
+.categorie-Sci-Fi-img {
+  width: 341px;
+  height: 230px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+  display: inline-flex;
+}
+
+.categorie-Fantasy-img {
+  width: 341px;
+  height: 230px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+  display: inline-flex;
+}
+
+.categorie-Animation-img {
   width: 341px;
   height: 230px;
   background-repeat: no-repeat;
