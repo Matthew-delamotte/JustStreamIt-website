@@ -134,11 +134,60 @@ header {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #555454;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid rgb(68, 68, 68);
   width: 80%; /* Could be more or less, depending on screen size */
+  color: #f7f7f7;
+
+  &__img {
+    float: left;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__genre {
+    margin: 3px;
+  }
+
+  &__date-published {
+    margin: 3px;
+  }
+
+  &__rated {
+    margin: 3px;
+  }
+
+  &__score-imdb {
+    margin: 3px;
+  }
+
+  &__director {
+    margin: 3px;
+  }
+  &__actors {
+    margin: 3px;
+  }
+
+  &__duration {
+    margin: 3px;
+  }
+
+  &__countries {
+    margin: 3px;
+  }
+
+  &__box-office {
+  }
+
+  &__resume {
+    padding-top: 33px;
+  }
 }
 
 /* The Close Button */

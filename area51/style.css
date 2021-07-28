@@ -129,13 +129,49 @@ header .topnav a:hover {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #555454;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #444444;
   width: 80%;
   /* Could be more or less, depending on screen size */
+  color: #f7f7f7;
+}
+.modal-content__img {
+  float: left;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+.modal-content__title {
+  font-size: 20px;
+}
+.modal-content__genre {
+  margin: 3px;
+}
+.modal-content__date-published {
+  margin: 3px;
+}
+.modal-content__rated {
+  margin: 3px;
+}
+.modal-content__score-imdb {
+  margin: 3px;
+}
+.modal-content__director {
+  margin: 3px;
+}
+.modal-content__actors {
+  margin: 3px;
+}
+.modal-content__duration {
+  margin: 3px;
+}
+.modal-content__countries {
+  margin: 3px;
+}
+.modal-content__resume {
+  padding-top: 33px;
 }
 
 /* The Close Button */
