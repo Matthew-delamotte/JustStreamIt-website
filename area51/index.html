@@ -24,36 +24,12 @@
           <div class="best-movie-text">
             <p id="best-movie-titre">Nom du film</p>
             <button>Trailer</button>
-            <button>Résumé</button>
+            <button onclick="openModal()">Résumé</button>
           </div>
         </div>
       </div>
 
       <div id="best-movies"></div>
-
-      <div id="movie-info-modal" class="movie-info-modal">
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <img class="modal-content__img" src="https://m.media-amazon.com/images/M/MV5BNjA5Y2ZhYzctNDc1Yy00OGViLWI3NGUtOTYwZmE3NDFiYmIxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UY268_CR72,0,182,268_AL_.jpg" alt="Affiche">
-            <h3 class="modal-content__title">{titre}</h3>
-            <div class="modal-content__genre">Genres : {genre}</div>
-            <div class="modal-content__date-published">{date_published}</div>
-            <div class="modal-content__rated">Rated: {rated}</div>
-            <div class="modal-content__score-imdb">Score IMBD: {score_imbd}</div>
-            <div class="modal-content__director">Réalisateur: {director}</div>
-            <div class="modal-content__actors">Acteur: {actors}</div>
-            <div class="modal-content__duration">Durée: {duration}</div>
-            <div class="modal-content__countries">Pays d'origine: {countries}</div>
-            <div class="modal-content__box-office">Box Office: {boxOffice}</div>
-            <div class="modal-content__resume">Résumé:
-              <p class="modal-content__resume_text">{long description} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget odio sit amet enim euismod sodales. Vestibulum sollicitudin metus dignissim lacinia ultrices. Etiam ac cursus ante. Proin vitae rhoncus ante. Ut eleifend consectetur facilisis. Pellentesque ac lacus sollicitudin, posuere tortor in, vehicula tortor. Mauris cursus nulla quis mi placerat, eu condimentum sapien facilisis. In eu lectus a lectus vehicula rhoncus a quis elit. Maecenas lobortis sit amet ipsum a viverra. Curabitur sed odio enim. Mauris eget magna non orci sodales tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed pellentesque lectus ligula, ac vulputate magna posuere sodales. Ut dui dui, gravida vel dui ac, tincidunt porta lacus.</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </main>
 

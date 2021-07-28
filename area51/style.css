@@ -107,7 +107,7 @@ header .topnav a:hover {
 
 /* The Modal (background) */
 .modal {
-  display: visible;
+  display: none;
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
@@ -146,7 +146,7 @@ header .topnav a:hover {
 .modal-content__title {
   font-size: 20px;
 }
-.modal-content__genre {
+.modal-content__genres {
   margin: 3px;
 }
 .modal-content__date-published {
@@ -169,6 +169,9 @@ header .topnav a:hover {
 }
 .modal-content__countries {
   margin: 3px;
+}
+.modal-content__box-office {
+  margin: 0px;
 }
 .modal-content__resume {
   padding-top: 33px;

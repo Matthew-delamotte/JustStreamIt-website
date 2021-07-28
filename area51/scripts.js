@@ -17,10 +17,12 @@ async function getMovieData(url) {
 
 /* Creation HTML */
 function bestMovieImg(movie) {
-  const img = document.createElement("img");
-  img.src = movie.image_url;
-  // img.className = "best-movie-img";
-  // document.getElementById("best-movie").appendChild(img);
+  // const img = document.createElement("img");
+  // img.src = movie.image_url;
+
+  const modalButton = document.createElement("button");
+  modalButton.appendChild(document.createTextNode("Résumé"));
+
   document.getElementById(
     "best-movie"
   ).style.backgroundImage = `url(${movie.image_url})`;
@@ -28,6 +30,8 @@ function bestMovieImg(movie) {
   //   title.appendChild(document.createTextNode(movie.title));
   //   title.appendChild(document.createI)
   //   document.getElementById("best-movie").appendChild(title);
+  // img.className = "best-movie-img";
+  // document.getElementById("best-movie").appendChild(img);
 }
 
 function bestMoviesImg(movies) {
@@ -39,6 +43,10 @@ function bestMoviesImg(movies) {
 
     const div = document.createElement("div");
     div.classList.add("best-movies-img");
+    // div.onclick = openModal;
+    div.addEventListener("click", function () {
+      openModal(movie);
+    });
     div.style.backgroundImage = `url(${movie.image_url})`;
     a.appendChild(div);
     parent.appendChild(a);
@@ -51,27 +59,27 @@ function bestMoviesImg(movies) {
   //   }
 }
 
-async function categorie(categorie) {
-  const movies = await lstMovies("-imdb_score", categorie, 7);
-  const parent = document.getElementById("categorie-scyfi-slider");
-  for (const movie of movies.results) {
-    const div = document.createElement("div");
-    div.classList.add("keen-slider__slide");
-    div.style.backgroundImage = `url(${movie.image_url})`;
-    // parent.appendChild(div);
-  }
+// async function categorie(categorie) {
+// const movies = await lstMovies("-imdb_score", categorie, 7);
+// const parent = document.getElementById("categorie-scyfi-slider");
+// for (const movie of movies.results) {
+//   const div = document.createElement("div");
+//   div.classList.add("keen-slider__slide");
+//   div.style.backgroundImage = `url(${movie.image_url})`;
+//   // parent.appendChild(div);
+// }
 
-  //   const img = document.createElement("img");
-  //   img.src = movie.image_url;
-  //   document.getElementById(`categorie${categorie}`).appendChild(img);
-  // }
-  //   for (const movie of movies.results) {
-  //     const title = document.createElement("div");
-  //     title.classList.add("movie");
-  //     title.appendChild(document.createTextNode(movie.title));
-  //     document.getElementById(`categorie${categorie}`).appendChild(title);
-  //   }
-}
+//   const img = document.createElement("img");
+//   img.src = movie.image_url;
+//   document.getElementById(`categorie${categorie}`).appendChild(img);
+// }
+//   for (const movie of movies.results) {
+//     const title = document.createElement("div");
+//     title.classList.add("movie");
+//     title.appendChild(document.createTextNode(movie.title));
+//     document.getElementById(`categorie${categorie}`).appendChild(title);
+//   }
+// }
 
 // lstMovies("-imdb_score", "", 8).then((movies) => {
 //   for (const movie of movies.results) {
@@ -84,96 +92,121 @@ lstMovies("-imdb_score", "", 8).then((movies) => {
   bestMoviesImg(movies.results.slice(1));
 });
 
-categorie("Sci-Fi").then();
+// categorie("Sci-Fi").then();
 // categorie("Fantasy").then();
 // categorie("Animation").then();
 
-function getData(categorie) {
-  let movieData;
-  let moviesData = new Array();
-  if (categorie == "bestMovies") {
-    lstMovies("-imdb_score", "", 8).then((movies) => {
-      for (const movie of movies.results) {
-        getMovieData(movie.url).then((data) => {
-          // console.log(data);
-          movieData = [
-            data.image_url,
-            data.title,
-            data.genres,
-            data.date_published,
-            data.rated,
-            data.imdb_score,
-            data.directors,
-            data.actors,
-            data.duration,
-            data.countries,
-            data.metascore,
-            data.long_description,
-          ];
-          moviesData.push(movieData);
-        });
-      }
-    });
-  } else if (categorie == "Sci-fi" || "Fantasy" || "Animation") {
-    lstMovies("-imdb_score", categorie, 7).then((movies) => {
-      for (const movie of movies.results) {
-        getMovieData(movie.url).then((data) => {
-          // console.log(data);
-          movieData = [
-            data.image_url,
-            data.title,
-            data.genres,
-            data.date_published,
-            data.rated,
-            data.imdb_score,
-            data.directors,
-            data.actors,
-            data.duration,
-            data.countries,
-            data.metascore,
-            data.long_description,
-          ];
-          moviesData.push(movieData);
-        });
-      }
-    });
-  } else {
-    alert(err);
+async function openModal(movie) {
+  const detail = await getMovieData(movie.url);
+  const oldModal = document.getElementById("myModal");
+
+  if (oldModal) {
+    document.body.removeChild(oldModal);
   }
-  return moviesData;
+
+  // const modal = document.createElement("div");
+  // modal.classList.add("movie-info-modal");
+  // modal.setAttribute("id", "movie-info-modal");
+
+  const myModal = document.createElement("div");
+  myModal.classList.add("modal");
+  myModal.setAttribute("id", "myModal");
+
+  const content = document.createElement("div");
+  content.classList.add("modal-content");
+
+  const span = document.createElement("span");
+  span.classList.add("close");
+  span.appendChild(document.createTextNode("x"));
+
+  const img = document.createElement("img");
+  img.classList.add("modal-content__img");
+  img.src = detail.image_url;
+
+  const title = document.createElement("h3");
+  title.classList.add("modal-content__title");
+  title.appendChild(document.createTextNode(detail.title));
+
+  const genres = document.createElement("div");
+  genres.classList.add("modal-content__genres");
+  genres.appendChild(document.createTextNode(detail.genres));
+
+  const datePublished = document.createElement("div");
+  datePublished.classList.add("modal-content__date-published");
+  datePublished.appendChild(document.createTextNode(detail.date_published));
+
+  const rated = document.createElement("div");
+  rated.classList.add("modal-content__rated");
+  rated.appendChild(document.createTextNode(detail.rated));
+
+  const scoreImdb = document.createElement("div");
+  scoreImdb.classList.add("modal-content__scoreImdb");
+  scoreImdb.appendChild(document.createTextNode(detail.scoreImdb));
+
+  const director = document.createElement("div");
+  director.classList.add("modal-content__director");
+  director.appendChild(document.createTextNode(detail.director));
+
+  const actors = document.createElement("div");
+  actors.classList.add("modal-content__actors");
+  actors.appendChild(document.createTextNode(detail.actors));
+
+  const duration = document.createElement("div");
+  duration.classList.add("modal-content__duration");
+  duration.appendChild(document.createTextNode(detail.duration));
+
+  const countries = document.createElement("div");
+  countries.classList.add("modal-content__countries");
+  countries.appendChild(document.createTextNode(detail.countries));
+
+  const boxOffice = document.createElement("div");
+  boxOffice.classList.add("modal-content__box-office");
+  boxOffice.appendChild(document.createTextNode(detail.worldwide_gross_income));
+
+  const resume = document.createElement("div");
+  resume.classList.add("modal-content__resume");
+  resume.appendChild(document.createTextNode("résumé :"));
+
+  const resumeText = document.createElement("div");
+  resumeText.classList.add("modal-content__resume-text");
+  resumeText.appendChild(document.createTextNode(detail.long_description));
+
+  // modal.appendChild(myModal);
+  myModal.appendChild(content);
+  content.appendChild(span);
+  content.appendChild(img);
+  content.appendChild(title);
+  content.appendChild(genres);
+  content.appendChild(datePublished);
+  content.appendChild(rated);
+  content.appendChild(scoreImdb);
+  content.appendChild(director);
+  content.appendChild(actors);
+  content.appendChild(duration);
+  content.appendChild(countries);
+  content.appendChild(boxOffice);
+  content.appendChild(resume);
+  content.appendChild(resumeText);
+
+  myModal.style.display = "block";
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    myModal.style.display = "none";
+  };
+  document.body.appendChild(myModal);
 }
 
-moviesData = getData("bestMovies");
-console.log(moviesData);
-for (const [key, value] in Object.entries(moviesData)) {
-  console.log(`${key}: ${value}`);
-}
 // console.log(getData("bestMovies"));
 // getData("bestMovies");
 
 //******** Modal ***********/
-// // Get the modal
-// let modal = document.getElementById("myModal");
+// Get the modal
 
-// // Get the button that opens the modal
-// let btn = document.getElementsByClassName("myBtn");
-
-// // Get the <span> element that closes the modal
-// let span = document.getElementsByClassName("close")[0];
-
-// // When the user clicks on the button, open the modal
-// btn[0].onclick = function () {
-//   modal.style.display = "block";
-// };
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function () {
-//   modal.style.display = "none";
-// };
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// };
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  let openModal = document.getElementById("myModal");
+  if (event.target == openModal) {
+    openModal.style.display = "none";
+  }
+};
