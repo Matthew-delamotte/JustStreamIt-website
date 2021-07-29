@@ -59,7 +59,7 @@ function bestMovies(movies) {
   const parent = document.getElementById("best-movies");
 
   const title = document.createElement("h2");
-  title.appendChild(document.createTextNode("7 Meilleur films"));
+  title.appendChild(document.createTextNode("Films les mieux notés"));
   title.setAttribute("id", "best-movies-title");
   parent.appendChild(title);
 
@@ -176,39 +176,47 @@ async function openModal(movie) {
 
   const genres = document.createElement("div");
   genres.classList.add("modal-content__genres");
-  genres.appendChild(document.createTextNode(detail.genres));
+  genres.appendChild(document.createTextNode(`Genres: ${detail.genres}`));
 
   const datePublished = document.createElement("div");
   datePublished.classList.add("modal-content__date-published");
-  datePublished.appendChild(document.createTextNode(detail.date_published));
+  datePublished.appendChild(
+    document.createTextNode(`Date de sortie: ${detail.date_published}`)
+  );
 
   const rated = document.createElement("div");
   rated.classList.add("modal-content__rated");
-  rated.appendChild(document.createTextNode(detail.rated));
+  rated.appendChild(document.createTextNode(`Rated: ${detail.rated}`));
 
   const scoreImdb = document.createElement("div");
   scoreImdb.classList.add("modal-content__scoreImdb");
-  scoreImdb.appendChild(document.createTextNode(detail.scoreImdb));
+  scoreImdb.appendChild(
+    document.createTextNode(`Score Imdb: ${detail.scoreImdb}`)
+  );
 
   const director = document.createElement("div");
   director.classList.add("modal-content__director");
-  director.appendChild(document.createTextNode(detail.director));
+  director.appendChild(
+    document.createTextNode(`Réalisateur: ${detail.director}`)
+  );
 
   const actors = document.createElement("div");
   actors.classList.add("modal-content__actors");
-  actors.appendChild(document.createTextNode(detail.actors));
+  actors.appendChild(document.createTextNode(`Acteur: ${detail.actors}`));
 
   const duration = document.createElement("div");
   duration.classList.add("modal-content__duration");
-  duration.appendChild(document.createTextNode(detail.duration));
+  duration.appendChild(document.createTextNode(`Durée: ${detail.duration}`));
 
   const countries = document.createElement("div");
   countries.classList.add("modal-content__countries");
-  countries.appendChild(document.createTextNode(detail.countries));
+  countries.appendChild(document.createTextNode(`Pays: ${detail.countries}`));
 
   const boxOffice = document.createElement("div");
   boxOffice.classList.add("modal-content__box-office");
-  boxOffice.appendChild(document.createTextNode(detail.worldwide_gross_income));
+  boxOffice.appendChild(
+    document.createTextNode(`Box-office: ${detail.worldwide_gross_income}`)
+  );
 
   const resume = document.createElement("div");
   resume.classList.add("modal-content__resume");
