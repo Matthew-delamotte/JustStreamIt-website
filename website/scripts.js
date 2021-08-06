@@ -11,8 +11,12 @@ async function lstMovies(sortBy, genre, pageSize = 5) {
 }
 
 async function getMovieData(url) {
-  const response = await fetch(url);
-  return response.json();
+  try {
+    const response = await fetch(url);
+    return response.json();
+  } catch (err) {
+    alert(err);
+  }
 }
 
 /**************** Creation HTML ******************/
